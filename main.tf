@@ -38,6 +38,9 @@ resource "aws_db_instance" "this" {
   tags                          = var.tags
   multi_az                      = var.multi_az
   final_snapshot_identifier     = var.final_snapshot_identifier_prefix
+  # Enable IAM role for S3 integration
+  iam_database_authentication_enabled = true
+  iam_roles                            = ["arn:aws:iam::471112755263:role/ers-rds-ora-backup-restore"]
 
   depends_on = [
     aws_db_subnet_group.this,
