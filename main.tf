@@ -38,8 +38,7 @@ resource "aws_db_instance" "this" {
   tags                          = var.tags
   multi_az                      = var.multi_az
   final_snapshot_identifier     = var.final_snapshot_identifier_prefix
-  # Enable IAM role for S3 integration
-  iam_database_authentication_enabled = true
+ 
 
   depends_on = [
     aws_db_subnet_group.this,
